@@ -48,7 +48,7 @@ public abstract class BaseRender implements GLRender{
 
 
     @Override
-    public boolean onDrawFrame(EGL10 egl10) {
+    public void onDrawFrame(EGL10 egl10) {
         GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
         matrixState.pushMatrix();
         GL3DUtils.openAlphablend();

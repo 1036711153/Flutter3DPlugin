@@ -55,12 +55,9 @@ public class GLThread implements Runnable {
         render.onSurfaceCreated(egl, width, height);
         while (isRunning) {
             long startTime = System.currentTimeMillis();
-            if (render.onDrawFrame(egl)) {
-                if (!egl.eglSwapBuffers(eglDisplay, eglSurface)) {
-                    Log.d(LOG_TAG, egl.eglGetError() + "");
-                }
-            }
-            long waitTime = (long) (1000 * 1.0f / fps - (System.currentTimeMillis() - startTime));
+            render.onDrawFrame(egl);
+            egl.eglSwapBuffers(eglDisplay, eglSurface);
+            long waitTime = (long) (1000f / fps - (System.currentTimeMillis() - startTime));
             if (waitTime > 0) {
                 SystemClock.sleep(waitTime);
             }

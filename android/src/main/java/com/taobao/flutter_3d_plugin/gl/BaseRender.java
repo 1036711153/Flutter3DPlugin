@@ -57,7 +57,6 @@ public abstract class BaseRender implements GLRender{
         matrixState.popMatrix();
         GL3DUtils.closeAlphablend();
         matrixState.popMatrix();
-        return true;
     }
 
     @Override

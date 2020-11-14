@@ -3,10 +3,7 @@
   <component name="ChangeListManager">
     <list default="true" id="b0794631-eb82-42e9-b493-48999a09e472" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/Flutter3dPluginManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/Flutter3dPluginManager.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/BaseRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/BaseRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/GLRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/GLRender.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/GLThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/GLThread.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -52,25 +49,49 @@
       <option name="presentableId" value="Default" />
       <updated>1605318611078</updated>
     </task>
+    <task id="LOCAL-00001" summary="3D场景构建的代码提交">
+      <created>1605357605362</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1605357605362</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="3D场景构建的代码提交" />
+    <option name="LAST_COMMIT_MESSAGE" value="3D场景构建的代码提交" />
+  </component>
   <component name="WindowStateProjectService">
-    <state width="1674" height="294" key="GridCell.Tab.0.bottom" timestamp="1605350172956">
+    <state x="411" y="131" key="CommitChangelistDialog2" timestamp="1605357666296">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state width="1674" height="294" key="GridCell.Tab.0.bottom/0.23.1792.1017@0.23.1792.1017" timestamp="1605350172956" />
-    <state width="1674" height="294" key="GridCell.Tab.0.center" timestamp="1605350172955">
+    <state x="411" y="131" key="CommitChangelistDialog2/0.23.1792.1017@0.23.1792.1017" timestamp="1605357666296" />
+    <state x="205" y="113" key="DiffContextDialog" timestamp="1605357590556">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state width="1674" height="294" key="GridCell.Tab.0.center/0.23.1792.1017@0.23.1792.1017" timestamp="1605350172955" />
-    <state width="1674" height="294" key="GridCell.Tab.0.left" timestamp="1605350172955">
+    <state x="205" y="113" key="DiffContextDialog/0.23.1792.1017@0.23.1792.1017" timestamp="1605357590556" />
+    <state width="1674" height="392" key="GridCell.Tab.0.bottom" timestamp="1605357653227">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state width="1674" height="294" key="GridCell.Tab.0.left/0.23.1792.1017@0.23.1792.1017" timestamp="1605350172955" />
-    <state width="1674" height="294" key="GridCell.Tab.0.right" timestamp="1605350172955">
+    <state width="1674" height="392" key="GridCell.Tab.0.bottom/0.23.1792.1017@0.23.1792.1017" timestamp="1605357653227" />
+    <state width="1674" height="392" key="GridCell.Tab.0.center" timestamp="1605357653227">
       <screen x="0" y="23" width="1792" height="1017" />
     </state>
-    <state width="1674" height="294" key="GridCell.Tab.0.right/0.23.1792.1017@0.23.1792.1017" timestamp="1605350172955" />
+    <state width="1674" height="392" key="GridCell.Tab.0.center/0.23.1792.1017@0.23.1792.1017" timestamp="1605357653227" />
+    <state width="1674" height="392" key="GridCell.Tab.0.left" timestamp="1605357653226">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1674" height="392" key="GridCell.Tab.0.left/0.23.1792.1017@0.23.1792.1017" timestamp="1605357653226" />
+    <state width="1674" height="392" key="GridCell.Tab.0.right" timestamp="1605357653227">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1674" height="392" key="GridCell.Tab.0.right/0.23.1792.1017@0.23.1792.1017" timestamp="1605357653227" />
+    <state x="689" y="248" width="670" height="676" key="search.everywhere.popup" timestamp="1605357645432">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state x="689" y="248" width="670" height="676" key="search.everywhere.popup/0.23.1792.1017@0.23.1792.1017" timestamp="1605357645432" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

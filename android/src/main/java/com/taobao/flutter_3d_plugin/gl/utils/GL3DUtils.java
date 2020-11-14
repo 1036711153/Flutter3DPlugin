@@ -5,13 +5,13 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Canvas;
 import android.graphics.Color;
-import android.graphics.Paint;
 import android.graphics.PorterDuff;
-import android.graphics.Typeface;
 import android.opengl.GLES20;
 import android.text.Layout;
 import android.text.StaticLayout;
 import android.text.TextPaint;
+
+import com.taobao.flutter_3d_plugin.gl.MatrixState;
 
 import java.io.IOException;
 import java.io.InputStream;
@@ -23,8 +23,6 @@ import java.nio.FloatBuffer;
 public class GL3DUtils {
 
     public static void openAlphablend() {
-        //保护现场
-        MatrixState.pushMatrix();
         GLES20.glEnable(GLES20.GL_BLEND);
         GLES20.glBlendFunc(GLES20.GL_SRC_ALPHA, GLES20.GL_ONE_MINUS_SRC_ALPHA);
 //        GLES20.glBlendFuncSeparate(GLES20.GL_SRC_COLOR,GLES20.GL_SRC_ALPHA,GLES20.GL_ONE_MINUS_SRC_COLOR,GLES20.GL_ONE_MINUS_SRC_ALPHA);
@@ -32,8 +30,6 @@ public class GL3DUtils {
 
 
     public static void openColorblend() {
-        //保护现场
-        MatrixState.pushMatrix();
         GLES20.glEnable(GLES20.GL_BLEND);
         GLES20.glBlendFuncSeparate(
                 GLES20.GL_BLEND_SRC_RGB, GLES20.GL_ONE_MINUS_SRC_COLOR,
@@ -45,15 +41,11 @@ public class GL3DUtils {
 
     public static void closeColorblend() {
         GLES20.glDisable(GLES20.GL_BLEND);
-        //恢复现场
-        MatrixState.popMatrix();
     }
 
 
     public static void closeAlphablend() {
         GLES20.glDisable(GLES20.GL_BLEND);
-        //恢复现场
-        MatrixState.popMatrix();
     }
 
 

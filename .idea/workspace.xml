@@ -1,22 +1,75 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="b0794631-eb82-42e9-b493-48999a09e472" name="Default Changelist" comment="" />
+    <list default="true" id="b0794631-eb82-42e9-b493-48999a09e472" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/vcs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/circle/textrect.frag.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/circle/textrect.vertex.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/coil/coil.frag.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/coil/coil.vertex.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/cylineder/cylinederside.frag.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/cylineder/cylinederside.vertex.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/particles/particles_frag.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/particles/particles_vertex.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/textrect/textrect.frag.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/assets/textrect/textrect.vertex.glsl" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/BaseTextUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/BaseUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/CircleUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/CoilUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/CylinderSideUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/CylinederUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/HistogramUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/ParticlesUI.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/model/Angle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/model/ColorConstant.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/cell/model/Particle.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/utils/ShaderUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/example/lib/flutter_3d_demo.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/flutter_3d_widget.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/Flutter3dPlugin.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/Flutter3dPlugin.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/Demo3DRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/demo/Demo3DRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/BaseRender.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/BaseRender.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/GLThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/GLThread.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/utils/ColorUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/utils/ColorUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/utils/GL3DUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/utils/GL3DUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/utils/MatrixState.java" beforeDir="false" afterPath="$PROJECT_DIR$/android/src/main/java/com/taobao/flutter_3d_plugin/gl/MatrixState.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/example/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/example/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/flutter_3d_plugin.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/flutter_3d_plugin.dart" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="ExecutionTargetManager" SELECTED_TARGET="Pixel_XL_API_29" />
+  <component name="ExecutionTargetManager" SELECTED_TARGET="192.168.21.101:5555" />
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Dart File" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1kGEd7Qy0cODruCjLSWkpkavAvZ" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="showExcludedFiles" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent">
     <property name="dart.analysis.tool.window.force.activate" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="io.flutter.reload.alreadyRun" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/android/src/main/assets" />
     <property name="show.migrate.to.gradle.popup" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/android/src/main/assets" />
+    </key>
   </component>
   <component name="SvnConfiguration">
     <configuration />
@@ -30,5 +83,34 @@
       <updated>1605318611078</updated>
     </task>
     <servers />
+  </component>
+  <component name="WindowStateProjectService">
+    <state width="1674" height="294" key="GridCell.Tab.0.bottom" timestamp="1605349878107">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1674" height="294" key="GridCell.Tab.0.bottom/0.23.1792.1017@0.23.1792.1017" timestamp="1605349878107" />
+    <state width="1674" height="294" key="GridCell.Tab.0.center" timestamp="1605349878106">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1674" height="294" key="GridCell.Tab.0.center/0.23.1792.1017@0.23.1792.1017" timestamp="1605349878106" />
+    <state width="1674" height="294" key="GridCell.Tab.0.left" timestamp="1605349878106">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1674" height="294" key="GridCell.Tab.0.left/0.23.1792.1017@0.23.1792.1017" timestamp="1605349878106" />
+    <state width="1674" height="294" key="GridCell.Tab.0.right" timestamp="1605349878106">
+      <screen x="0" y="23" width="1792" height="1017" />
+    </state>
+    <state width="1674" height="294" key="GridCell.Tab.0.right/0.23.1792.1017@0.23.1792.1017" timestamp="1605349878106" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/flutter_3d_plugin.dart</url>
+          <line>32</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

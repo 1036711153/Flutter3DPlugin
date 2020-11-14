@@ -5,18 +5,20 @@ import android.opengl.GLES20;
 
 
 import com.taobao.flutter_3d_plugin.gl.utils.GL3DUtils;
-import com.taobao.flutter_3d_plugin.gl.utils.MatrixState;
 
 import javax.microedition.khronos.egl.EGL10;
 
 
 public abstract class BaseRender implements GLRender{
-    public float screenHalfX;
-    public float screenHalfY;
-    public Context context;
+    protected float screenHalfX;
+    protected float screenHalfY;
+    protected Context context;
+    protected MatrixState matrixState;
+
 
     public BaseRender(Context context) {
         this.context = context;
+        this.matrixState = new MatrixState();
     }
 
 
@@ -29,13 +31,13 @@ public abstract class BaseRender implements GLRender{
         GLES20.glEnable(GLES20.GL_CULL_FACE);
 
         GLES20.glViewport(0, 0, width, height);
-        MatrixState.setMatrixFrustM(width, height);
+        matrixState.setMatrixFrustM(width, height);
 
         screenHalfX = width * 1.0f / 2;
         screenHalfY = height * 1.0f / 2;
 
         //初始化光源方向
-        MatrixState.setLightLocation(0, screenHalfY / 2, 500f);
+        matrixState.setLightLocation(0, screenHalfY / 2, 500f);
 
         initUI();
     }
@@ -48,11 +50,13 @@ public abstract class BaseRender implements GLRender{
     @Override
     public boolean onDrawFrame(EGL10 egl10) {
         GLES20.glClear(GLES20.GL_DEPTH_BUFFER_BIT | GLES20.GL_COLOR_BUFFER_BIT);
+        matrixState.pushMatrix();
         GL3DUtils.openAlphablend();
-        MatrixState.pushMatrix();
+        matrixState.pushMatrix();
         onDraw(egl10);
-        MatrixState.popMatrix();
+        matrixState.popMatrix();
         GL3DUtils.closeAlphablend();
+        matrixState.popMatrix();
         return true;
     }
 

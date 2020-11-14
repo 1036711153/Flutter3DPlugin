@@ -1,4 +1,4 @@
-package com.taobao.flutter_3d_plugin.gl.utils;
+package com.taobao.flutter_3d_plugin.gl;
 
 import android.opengl.Matrix;
 
@@ -8,51 +8,59 @@ import java.nio.FloatBuffer;
 
 
 public class MatrixState {
+    private float[] projMatrix = new float[16];
+    private float[] vMatrix = new float[16];
+    private float[] currMatrix;
+    float[][] stack = new float[10][16];
+    int stackTop = -1;
 
-    private static float[] mProjMatrix = new float[16];
-    private static float[] mVMatrix = new float[16];
-    private static float[] currMatrix;
-    static float[][] mStack = new float[10][16];
-    static int stackTop = -1;
+    public float[] lightLocation = new float[]{0, 0, 0};//定位光光源位置
+    public FloatBuffer lightPositionFB;
+    public float[] lightDirection = new float[]{0, 0, 1};//定向光光源方向
+    public FloatBuffer lightDirectionFB;
+    public FloatBuffer cameraFB;
 
-    public static void setInitStack() {
+    ByteBuffer llbb = ByteBuffer.allocateDirect(3 * 4);
+    float[] cameraLocation = new float[3];//摄像机位置
+
+    //设置灯光位置的方法
+    ByteBuffer llbbL = ByteBuffer.allocateDirect(3 * 4);
+
+    public void setInitStack() {
         currMatrix = new float[16];
         Matrix.setRotateM(currMatrix, 0, 0, 1, 0, 0);
     }
 
-    public static void pushMatrix() {
+    public void pushMatrix() {
         stackTop++;
         for (int i = 0; i < 16; i++) {
-            mStack[stackTop][i] = currMatrix[i];
+            stack[stackTop][i] = currMatrix[i];
         }
     }
 
-    public static void popMatrix() {
+    public void popMatrix() {
         for (int i = 0; i < 16; i++) {
-            currMatrix[i] = mStack[stackTop][i];
+            currMatrix[i] = stack[stackTop][i];
         }
         stackTop--;
     }
 
-    public static void translate(float x, float y, float z)//设置沿xyz轴移动
+    public void translate(float x, float y, float z)//设置沿xyz轴移动
     {
         Matrix.translateM(currMatrix, 0, x, y, z);
     }
 
-    public static void rotate(float angle, int x, int y, int z) {
+    public void rotate(float angle, int x, int y, int z) {
         Matrix.rotateM(currMatrix, 0, angle, x, y, z);
     }
 
 
-    public static void scale(float x, float y, float z) {
+    public void scale(float x, float y, float z) {
         Matrix.scaleM(currMatrix, 0, x, y, z);
     }
 
 
-    static ByteBuffer llbb = ByteBuffer.allocateDirect(3 * 4);
-    static float[] cameraLocation = new float[3];//摄像机位置
-
-    public static void setCamera
+    public void setCamera
             (
                     float cx,    //摄像机位置x
                     float cy,   //摄像机位置y
@@ -66,7 +74,7 @@ public class MatrixState {
             ) {
         Matrix.setLookAtM
                 (
-                        mVMatrix,
+                        vMatrix,
                         0,
                         cx,
                         cy,
@@ -92,7 +100,7 @@ public class MatrixState {
 
 
     //设置透视投影参数
-    public static void setProjectFrustum
+    public void setProjectFrustum
     (
             float left,        //near面的left
             float right,    //near面的right
@@ -101,11 +109,11 @@ public class MatrixState {
             float near,        //near面距离
             float far       //far面距离
     ) {
-        Matrix.frustumM(mProjMatrix, 0, left, right, bottom, top, near, far);
+        Matrix.frustumM(projMatrix, 0, left, right, bottom, top, near, far);
     }
 
     //设置正交投影参数
-    public static void setProjectOrtho
+    public void setProjectOrtho
     (
             float left,        //near面的left
             float right,    //near面的right
@@ -114,49 +122,41 @@ public class MatrixState {
             float near,        //near面距离
             float far       //far面距离
     ) {
-        Matrix.orthoM(mProjMatrix, 0, left, right, bottom, top, near, far);
+        Matrix.orthoM(projMatrix, 0, left, right, bottom, top, near, far);
     }
 
     //获取具体物体的总变换矩阵
-    static float[] mMVPMatrix = new float[16];
+    float[] mvpMatrix = new float[16];
 
-    public static float[] getFinalMatrix() {
-        Matrix.multiplyMM(mMVPMatrix, 0, mVMatrix, 0, currMatrix, 0);
-        Matrix.multiplyMM(mMVPMatrix, 0, mProjMatrix, 0, mMVPMatrix, 0);
-        return mMVPMatrix;
+    public float[] getFinalMatrix() {
+        Matrix.multiplyMM(mvpMatrix, 0, vMatrix, 0, currMatrix, 0);
+        Matrix.multiplyMM(mvpMatrix, 0, projMatrix, 0, mvpMatrix, 0);
+        return mvpMatrix;
     }
 
     //获取具体物体的变换矩阵
-    public static float[] getMMatrix() {
+    public float[] getMMatrix() {
         return currMatrix;
     }
 
 
     /*设置屏幕与世界坐标系1：1对应
      * */
-    public static void setMatrixFrustM(int width, int height) {
+    public void setMatrixFrustM(int width, int height) {
         setInitStack();
         int distance = Math.max(width, height) * 10;
-        MatrixState.setProjectFrustum(
+        setProjectFrustum(
                 -width / 4, width / 4,
                 height / 4, -height / 4
                 , distance * 0.5f, distance * 1.5f
         );
-        MatrixState.setCamera(0, 0, 0, 0, 0, -1, 0, 1, 0);
-        MatrixState.translate(0, 0, -distance);
+        setCamera(0, 0, 0, 0, 0, -1, 0, 1, 0);
+        translate(0, 0, -distance);
     }
 
-    public static float[] lightLocation = new float[]{0, 0, 0};//定位光光源位置
-    public static FloatBuffer lightPositionFB;
-    public static float[] lightDirection = new float[]{0, 0, 1};//定向光光源方向
-    public static FloatBuffer lightDirectionFB;
-    public static FloatBuffer cameraFB;
-
-    //设置灯光位置的方法
-    static ByteBuffer llbbL = ByteBuffer.allocateDirect(3 * 4);
 
     //设置灯光方向的方法
-    public static void setLightDirection(float x, float y, float z) {
+    public void setLightDirection(float x, float y, float z) {
         llbbL.clear();
         lightDirection[0] = x;
         lightDirection[1] = y;
@@ -167,7 +167,7 @@ public class MatrixState {
         lightDirectionFB.position(0);
     }
 
-    public static void setLightLocation(float x, float y, float z) {
+    public void setLightLocation(float x, float y, float z) {
         llbbL.clear();
 
         lightLocation[0] = x;

@@ -5,9 +5,6 @@ import android.opengl.EGL14;
 import android.os.SystemClock;
 import android.util.Log;
 
-
-import java.util.concurrent.locks.Lock;
-
 import javax.microedition.khronos.egl.EGL10;
 import javax.microedition.khronos.egl.EGLConfig;
 import javax.microedition.khronos.egl.EGLContext;
@@ -30,26 +27,20 @@ public class GLThread implements Runnable {
     private int width;
     //高
     private int height;
-    //线程锁
-    private Lock lock;
+
     //线程是否运行
     private volatile boolean isRunning = false;
-    //线程是否持续运行
-    private volatile boolean isRenderModeContinuously;
 
     private int fps;
 
     public GLThread(TextureRegistry.SurfaceTextureEntry entry,
                     SurfaceTexture texture, GLRender render,
-                    int width, int height,
-                    Lock lock, boolean isRenderModeContinuously, int fps) {
+                    int width, int height, int fps) {
         this.entry = entry;
         this.texture = texture;
         this.render = render;
         this.width = width;
         this.height = height;
-        this.lock = lock;
-        this.isRenderModeContinuously = isRenderModeContinuously;
         this.fps = fps;
     }
 
@@ -72,9 +63,6 @@ public class GLThread implements Runnable {
             long waitTime = (long) (1000 * 1.0f / fps - (System.currentTimeMillis() - startTime));
             if (waitTime > 0) {
                 SystemClock.sleep(waitTime);
-            }
-            if (!isRenderModeContinuously) {
-                lock.tryLock();
             }
         }
         render.onSurfaceDestroy(egl);
@@ -157,7 +145,6 @@ public class GLThread implements Runnable {
      * 释放回收线程方法
      */
     public void dispose() {
-        lock.unlock();
         isRunning = false;
     }
 

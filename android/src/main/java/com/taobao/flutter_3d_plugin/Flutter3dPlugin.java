@@ -64,7 +64,6 @@ public class Flutter3dPlugin implements FlutterPlugin, MethodCallHandler {
             double width = (double) arguments.get("width");
             double height = (double) arguments.get("height");
             int fps = (int) arguments.get("fps");
-            boolean isRenderModeContinuously = (boolean) arguments.get("isRenderModeContinuously");
 
             Context context = flutterPluginBinding.getApplicationContext();
 
@@ -78,15 +77,15 @@ public class Flutter3dPlugin implements FlutterPlugin, MethodCallHandler {
 
             GLThread thread = new GLThread(surfaceTextureEntry,
                     surfaceTexture, new Demo3DRender(context),
-                    covertWidth, covertHeight,
-                    new ReentrantLock(), isRenderModeContinuously, fps);
+                    covertWidth, covertHeight, fps);
 
             Flutter3dPluginManager.getInstance().addTexture(surfaceTextureEntry.id(), thread);
             result.success(surfaceTextureEntry.id());
         } else if (call.method.equals("dispose")) {
             Map<String, Object> arguments = (Map<String, Object>) call.arguments;
-            long textureId = (long) arguments.get("textureId");
+            long textureId = Long.parseLong(arguments.get("textureId").toString());
             Flutter3dPluginManager.getInstance().removeTexture(textureId);
+            result.success(true);
         } else {
             result.notImplemented();
         }

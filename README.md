@@ -4,7 +4,7 @@
 
 目前Flutter其实都是通过skia渲染引擎，对应构建一些3D场景都是有一些不方便，根据官方介绍文档也不支持OpenGL ES或者Vulkan相关API的直接调用，因此如果想构建3D场景需要自行想办法去构建；
 
-![截屏2020-11-14 下午7.49.40](./readme_image/2020-11-147.49.40.png)
+![截屏2020-11-14 下午7.49.40](http://chuantu.xyz/t6/741/1605433797x1700338641.png)
 
 ### 2.分析
 
@@ -96,7 +96,7 @@ GLSurfaceView有如下关键代码：
 
 当有了上面3个生命周期的回调后，就可以根据openGL ES相关的逻辑去构建场景，然后将textureId返回给Flutter显示即可，如下3D的圆柱体是通过此方式构建的：
 
-![3d](./readme_image/3d.jpg)
+![3d](http://chuantu.xyz/t6/741/1605433839x1033347913.jpg)
 
 因为有2个Flutter中Texure的Widget,因此需要构建2个互相隔离的3D场景，需要我们去维护一个map去管理各自对应的texureId和GLThread，如下代码，在Widget的init/dispose时候分别调用addTexture/removeTexture,保证线程数据隔离，相互状态隔离；
 

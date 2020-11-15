@@ -4,7 +4,7 @@
 
 目前Flutter其实都是通过skia渲染引擎，对应构建一些3D场景都是有一些不方便，根据官方介绍文档也不支持OpenGL ES或者Vulkan相关API的直接调用，因此如果想构建3D场景需要自行想办法去构建；
 
-![image-20201114194947576](/Users/houjiawei/Library/Application Support/typora-user-images/image-20201114194947576.png)
+![截屏2020-11-14 下午7.49.40](/Users/houjiawei/FlutterDemo/Flutter3DPlugin/readme/截屏2020-11-14 下午7.49.40.png)
 
 ### 2.分析
 
